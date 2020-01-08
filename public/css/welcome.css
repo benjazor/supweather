@@ -1,0 +1,67 @@
+body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    background: #FFFFFF;
+    background-image: url('/media/clouds.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.box {
+    padding: 2vh 10vw;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.8em;
+
+    color: white;
+    background: #0097E6;
+    background: linear-gradient(0deg, #0097E6 0%, #F5F6FA 100%);
+}
+
+.box * {
+    margin: 0.3em;
+}
+
+.box img {
+    height: 5em;
+}
+
+.box h1 {
+    margin: 0.5em 0 0.1em 0;
+    font-weight: 300;
+}
+
+.box h2 {
+    margin: 0.1em 0 0.5em 0;
+    font-weight: 200;
+}
+
+.box a {
+    width: 16em;
+    padding: 0.4em 0;
+    border-radius: 0.5em;
+
+    font-size: 1.4em;
+    font-weight: 600;
+
+    color: white;
+    text-decoration: none;
+
+    text-align: center;
+}
+
+.login {
+    background-color: #00FF9B;
+
+}
+
+.register {
+    background-color: #003EFF;
+}
+

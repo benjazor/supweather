@@ -1,0 +1,10 @@
+ul.errors, ul.success {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    list-style: none;
+}
+
+ul.errors li { background-color: #e84118; }
+ul.success li { background-color: #00FF9B; }

@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+    head
+        title Login - Supweather
+
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet', href='/css/main.css')
+        link(rel='stylesheet', href='/css/authentication.css')
+        link(rel='stylesheet', href='/css/messages.css')
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600&display=swap")
+
+    body
+        .box
+            img(src='/media/logo.png' alt='supweather logo')
+            h1 Welcome on Supweather
+            form(action='/login', method='POST')
+                include ../template/messages
+                input( type='email', id='email', name='email', placeholder='E-mail' )
+                input( type='password', id='password', name='password', placeholder='Password' )
+                button(type='submit') Login
+
+                a(href='/register') Create an account

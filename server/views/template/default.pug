@@ -1,0 +1,21 @@
+doctype html
+html(lang='en' data-theme='light')
+    head
+        block config
+
+        title=title+' - Supweather'
+
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet', href='/css/main.css')
+        link(rel='stylesheet', href='/css/header.css')
+        link(rel='stylesheet', href='/css/footer.css')
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600&display=swap")
+
+
+    body
+        include header
+
+        .content
+            block content
+
+        //include footer

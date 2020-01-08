@@ -1,0 +1,16 @@
+if typeof errors != 'undefined'
+    ul.errors
+        each error in errors
+            li= error.msg
+
+if success_msg != ''
+    ul.success
+        li= success_msg
+
+if error_msg != ''
+    ul.errors
+        li= error_msg
+
+if error != ''
+    ul.errors
+        li= error

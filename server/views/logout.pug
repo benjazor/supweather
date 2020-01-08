@@ -1,0 +1,9 @@
+extends defaut-template
+block config
+    - const title = 'Logout'
+    link(rel='stylesheet', href='/css/logout.css')
+
+block content
+    h1 You are logged out
+    p Was this a mistake?
+        a(href='/users/login') Login

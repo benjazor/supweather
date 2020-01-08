@@ -1,0 +1,21 @@
+extends ../template/default
+
+block config
+    - const title = 'Details'
+    link(rel='stylesheet', href='css/add.css')
+
+block content
+    .box
+        each detail in details
+            .detial
+                .day= detail.day
+                .icon
+                    img(src= '/media/weather/' + detail.icon + '.png', alt=detail.description)
+                .temp_min= detail.min
+                .temp_max= detail.max
+        h1 Add a city
+        form(action='/add', method='POST')
+            input( type='text', id='cityId', name='cityId', placeholder='City Id' )
+            button(type='submit') Add
+
+        a(href='/home') Back to home page

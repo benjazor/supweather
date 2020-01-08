@@ -1,0 +1,45 @@
+extends ../template/default
+
+block config
+    - const title = 'Home'
+    link(rel='stylesheet', href='css/home.css')
+    link(rel='stylesheet', href='css/messages.css')
+
+block content
+    include ../template/messages
+    .slider-block
+        img(src='/media/arrows/previous.png', alt='previous').slider-control
+        .slider
+            .item
+                p.name Tunisia
+                img(src='/media/weather/09d.png', alt='sunny').weather
+                p.temperature 20°
+                p.desc Sunny
+                .temp
+                    .min
+                        img(src='/media/arrows/min.png', alt='minimum temperature')
+                        p.temp 18
+                        p MIN
+                    .max
+                        img(src='/media/arrows/max.png', alt='maximum temperature')
+                        p.temp 26
+                        p MAX
+            .item
+                p.name Tunisia
+                img(src='/media/weather/01d.png', alt='sunny').weather
+                p.temperature 20°
+                p.desc Sunny
+                .temp
+                    .min
+                        img(src='/media/arrows/min.png', alt='minimum temperature')
+                        p.temp 18
+                        p MIN
+                    .max
+                        img(src='/media/arrows/max.png', alt='maximum temperature')
+                        p.temp 26
+                        p MAX
+            .item.add-city
+                p.name Add City
+                a.add(href='/add')
+                .city
+        img(src='/media/arrows/next.png', alt='next').slider-control

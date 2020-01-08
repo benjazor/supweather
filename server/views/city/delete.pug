@@ -1,0 +1,14 @@
+extends ../template/default
+
+block config
+    - const title = 'Delete City'
+    link(rel='stylesheet', href='css/add.css')
+
+block content
+    .box
+        h1 Delete a city
+        form(action='/delete', method='POST')
+            input( type='text', id='cityId', name='cityId', placeholder='City Id' )
+            button(type='submit') Delete
+
+        a(href='/home') Back to home page

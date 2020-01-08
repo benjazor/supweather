@@ -1,0 +1,23 @@
+header
+    .toggle-button(onclick='toggleSideMenu()')
+        span
+        span
+        span
+    img(src='/media/logo.png' alt='supweather logo')
+    h2 Supweather
+    h2.today TODAY
+    .theme-toggle
+        p LIGHT
+        .toggle-container
+            input(type="checkbox", id="switch", name="theme")
+            label(for="switch") Toggle
+        p DARK
+#side-menu
+    .menu
+        a(href='/home') Home
+        a(href='/add') Add a City
+        a(href='/delete') Delete a City
+        a(href='/logout') Logout
+
+script(type='text/javascript' src='/js/color-theme.js')
+script(type='text/javascript' src='/js/side-menu.js')

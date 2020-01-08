@@ -1,0 +1,32 @@
+extends ../template/default
+
+block config
+    - const title = 'Home'
+    link(rel='stylesheet', href='css/home.css')
+    link(rel='stylesheet', href='css/messages.css')
+
+block content
+    include ../template/messages
+    .slider-block
+        img(src='/media/arrows/previous.png', alt='previous').slider-control
+        .slider
+            each city in cities
+                a.item(href='/details/' + city.id)
+                    p.name=city.name + ', ' + city.sys.country
+                    img(src='/media/weather/' + city.weather[0].icon + '.png', alt='sunny').weather
+                    p.temperature=Math.round( city.main.temp -273.15 ) + '°'
+                    p.desc=city.weather[0].main
+                    .temp
+                        .min
+                            img(src='/media/arrows/min.png', alt='minimum temperature')
+                            p.temp=Math.round( city.main.temp_min -273.15 )
+                            p MIN
+                        .max
+                            img(src='/media/arrows/max.png', alt='maximum temperature')
+                            p.temp=Math.round( city.main.temp_max -273.15 )
+                            p MAX
+            .item.add-city(href='/add')
+                p.name Add City
+                a.add(href='/add')
+                .city
+        img(src='/media/arrows/next.png', alt='next').slider-control

@@ -1,0 +1,75 @@
+html {
+    --primary: #FFF;
+    --secondary: #FFF;
+    --tertiary: #FFF;
+}
+
+html[data-theme='dark']{
+    --primary: #003EFF;
+    --secondary: #00FF9B;
+    --tertiary: #00FF9B;
+}
+
+body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    background: rgb(0,62,255);
+    background: linear-gradient(0deg, #2d1e63 0%, #b199f0 100%);
+}
+
+.box {
+    padding: 2vh 10vw;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.8em;
+
+    color: white;
+    background: rgb(0,62,255);
+    background: linear-gradient(0deg, #6b2084 0%, #070778 100%);
+}
+
+.box * {
+    margin: 0.3em;
+}
+
+.box img {
+    height: 5em;
+}
+
+.box h1 {
+    font-weight: 300;
+}
+
+.box h2 {
+    font-weight: 200;
+}
+
+.box a {
+    width: 16em;
+    padding: 0.4em 0;
+    border-radius: 0.5em;
+
+    font-size: 1.4em;
+    font-weight: 600;
+
+    color: white;
+    text-decoration: none;
+
+    text-align: center;
+}
+
+.login {
+    background-color: var(--secondary);
+
+}
+
+.register {
+    background-color: var(--primary);
+}
+

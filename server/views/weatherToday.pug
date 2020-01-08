@@ -1,0 +1,7 @@
+ul.city
+    li.name= name + ',' + sys.country
+    li.temp= Math.round( main.temp -273.15 )
+    li.temp_min= Math.round( main.temp_min -273.15 )
+    li.temp_max= Math.round( main.temp_max -273.15 )
+    li.icon
+        img(src= '/media/weather/'+ weather[0].icon +'.png', alt=weather[0].description)

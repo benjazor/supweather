@@ -1,0 +1,32 @@
+extends defaut-template
+block config
+    - const title = 'Register'
+    link(rel='stylesheet', href='/css/authentication.css')
+
+block content
+
+    h1 Register
+    p Please register here
+
+    include messages
+
+    form(action='/users/register', method='POST')
+        .from-group
+            label Name
+            input( type='text', id='name', name='name', placeholder='Enter Your Name', value=name || '' )
+        .from-group
+            label Email
+            input( type='email', id='email', name='email', placeholder='Enter Your Email', value=email || '' )
+        .from-group
+            label Confirmation Email
+            input( type='email', id='confirmationemail', name='confirmationemail', placeholder='Enter Confirmation Email', value=confirmationemail || '' )
+        .from-group
+            label Password
+            input( type='password', id='password', name='password', placeholder='Create Password' )
+        .from-group
+            label Confirmation Password
+            input( type='password', id='confirmationpassword', name='confirmationpassword', placeholder='Enter Confirmation Password' )
+        button(type='submit') Register
+
+    p Already have an account?
+        a(href='/users/login') Login

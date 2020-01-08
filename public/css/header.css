@@ -1,0 +1,132 @@
+header {
+    height: 4em;
+    top: 0px;
+    padding: 0.8em 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-shadow: 0px 0px 10px var(--shadow-color);
+}
+
+header .toggle-button {
+    margin: 0 2em;
+}
+header .toggle-button:hover {
+    cursor: pointer;
+}
+
+header .toggle-button span {
+    display: block;
+    width: 2em;
+    height: 0.3em;
+    background: var(--text-color);
+    margin: 0.35em 0;
+}
+
+header img {
+    height: 1.8em;
+    margin: 0 0.8em 0 1em;
+}
+
+header h2 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.8em;
+}
+
+header h2.today {
+    position: absolute;
+    margin: 0 50%;
+}
+
+header .theme-toggle {
+    position: absolute;
+    right: 2em;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.toggle-container {
+    margin: 0 1em;
+}
+
+/**********   THEME TOGGLE   **********/
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: grey;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: var(--background-color);
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    background: var(--text-color);
+}
+
+input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 45px;
+}
+
+
+
+/**********   SIDE MENU   **********/
+#side-menu {
+    position: fixed;
+    width: 200px;
+    height: 100vh;
+    background: var(--background-color);
+    left: -210px;
+    top: 4em;
+    transition: all 120ms;
+
+    box-shadow: 0px 10px 10px var(--shadow-color);
+}
+#side-menu.active{
+    left: 0px;
+}
+#side-menu .menu {
+    display: flex;
+    flex-flow: column;
+}
+#side-menu .menu a{
+    width: 90%;
+    padding: 0.8em 0 0.8em 1em;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+}
+
