@@ -64,3 +64,28 @@ html[data-theme='dark'] {
     font-weight: 600;
     color: var(--text-color);
 }
+
+#citiesContainer {
+    display: flex;
+    flex-flow: column;
+}
+
+#citiesContainer form {
+    margin: 0.5em 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#citiesContainer form button:hover { cursor: pointer }
+#citiesContainer form button {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+#citiesContainer form p {
+    text-align: left;
+}

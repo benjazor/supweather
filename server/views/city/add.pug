@@ -11,4 +11,9 @@ block content
             input( type='text', id='cityId', name='cityId', placeholder='City Id' )
             button(type='submit') Add
 
+        input( type='text', id='cityInput', placeholder='Search a city', onkeyup='updateCities()')
+        ul#citiesContainer
+
+        script(src='/js/add-city.js')
+
         a(href='/home') Back to home page
