@@ -7,9 +7,9 @@ block config
 
 block content
     include ../template/messages
-    .slider-block
-        img(src='/media/arrows/previous.png', alt='previous').slider-control
-        .slider
+    .slider-block(id='content-carousel')
+        img(src='/media/arrows/previous.png', alt='previous', onclick='previous()').slider-control
+        .slider(id='content-carousel-items')
             each city in cities
                 a.item(href='/details/' + city.id)
                     p.name=city.name + ', ' + city.sys.country
@@ -29,4 +29,5 @@ block content
                 p.name Add City
                 a.add(href='/add')
                 .city
-        img(src='/media/arrows/next.png', alt='next').slider-control
+        img(src='/media/arrows/next.png', alt='next', onclick='next()').slider-control
+        script(src='/js/content-carousel.js')

@@ -76,7 +76,7 @@ img.slider-control:hover {
 
 
 /**********   SLIDER ITEMS   **********/
-a.item {
+.item {
     width: 30%;
     min-width: 30%;
     padding: 1em 1em;
@@ -151,6 +151,7 @@ div.temp {
     color: var(--text-color);
 }
 
+/**********   ADD CITY ITEM   **********/
 .add-city {
     justify-content: space-between;
     padding: 1em 1em;
