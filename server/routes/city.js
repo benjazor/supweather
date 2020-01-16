@@ -40,7 +40,10 @@ router.post('/add', ensureAuthenticated, (req, res) => {
 
 /**********   DELETE CITY   **********/
 // Delete City Page
-router.get('/delete', ensureAuthenticated, (req, res) => { return res.render('city/delete'); });
+router.get('/delete', ensureAuthenticated, (req, res) => {
+    let userCities = City.getUserCities(req.user.cities);
+    return res.render('city/delete', { cities: userCities });
+});
 // Delete City Handle
 router.post('/delete', ensureAuthenticated, (req, res) => {
 
@@ -86,11 +89,11 @@ router.get('/details/:cityId?', (req, res, next) => {
     let city = City.inCityList(req.params.cityId);
     if (city) {
         request({ // Request parameters
-            'method': 'GET',
-            'url': `https://api.openweathermap.org/data/2.5/forecast?id=${city.id}&mode=JSON&appid=${process.env.OPENWEATHER_API_KEY}`,
-            'json': true,
-            'headers': {}
-        })
+                'method': 'GET',
+                'url': `https://api.openweathermap.org/data/2.5/forecast?id=${city.id}&mode=JSON&appid=${process.env.OPENWEATHER_API_KEY}`,
+                'json': true,
+                'headers': {}
+            })
             .then((data) => { // If the request is successful
                 return res.render('city/details', { details: City.processDetails(data) });
             })

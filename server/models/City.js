@@ -3,13 +3,13 @@ const daysList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 const request = require('request-promise');
 
 class City {
-    constructor() {    }
+    constructor() {}
 
     // Check if city id is in city list
     static inCityList(cityId) {
         let result = undefined;
         cities.forEach(city => {
-            if (city.id == cityId) result=city;
+            if (city.id == cityId) result = city;
         });
         return result;
     }
@@ -24,12 +24,12 @@ class City {
             let city = this.inCityList(userCities[0]);
             if (city) {
                 request({ // Request parameters
-                    'method': 'GET',
-                    'url': `https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=${process.env.OPENWEATHER_API_KEY}`,
-                    'json': true,
-                    'headers': {}
-                })
-                    .then(function (data) { // If the request is successful
+                        'method': 'GET',
+                        'url': `https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=${process.env.OPENWEATHER_API_KEY}`,
+                        'json': true,
+                        'headers': {}
+                    })
+                    .then(function(data) { // If the request is successful
                         _result.push(data);
                         _userCities.shift();
                         return City.getCityToday(_userCities, _result, next);
@@ -62,7 +62,7 @@ class City {
                 });
                 index++;
 
-            } else {  // Process Min, Max, Icon
+            } else { // Process Min, Max, Icon
                 // Check and replace min if necessary
                 if (item.main.temp_min < results[index].min) results[index].min = item.main.temp_min;
                 // Check and replace max if necessary
@@ -75,6 +75,14 @@ class City {
             }
         });
         return results;
+    }
+
+    static getUserCities = (userCityList) => {
+        let result = [];
+        for (let userCityId of userCityList) {
+            result.push(cities.find(city => city.id == userCityId));
+        }
+        return result;
     }
 
 
@@ -97,32 +105,32 @@ class City {
         }
      */
 
-/*
-    // Returns the list of cities: [{value, placeholder},...]
-    static getCityList() {
-        let result = [];
-        cities.forEach(city => {
-            result.push({
-                value: city.name +'-'+ city.country,
-                placeholder: city.name +', '+ city.country
+    /*
+        // Returns the list of cities: [{value, placeholder},...]
+        static getCityList() {
+            let result = [];
+            cities.forEach(city => {
+                result.push({
+                    value: city.name +'-'+ city.country,
+                    placeholder: city.name +', '+ city.country
+                });
             });
-        });
-        return result;
-    }
- */
+            return result;
+        }
+     */
 
-/*
-    // Returns the list of cities: [{value, placeholder},...]
-    static getCityId(name, country) {
-        let _name = name.toLowerCase();
-        let _country = country === undefined ? undefined : country.toLowerCase();
-        let a = undefined;
-        cities.forEach(city => {
-            if (city.name.toLowerCase() == _name && (country === undefined || city.country.toLowerCase() == _country)) a=city.id;
-        });
-        return a;
-    }
- */
+    /*
+        // Returns the list of cities: [{value, placeholder},...]
+        static getCityId(name, country) {
+            let _name = name.toLowerCase();
+            let _country = country === undefined ? undefined : country.toLowerCase();
+            let a = undefined;
+            cities.forEach(city => {
+                if (city.name.toLowerCase() == _name && (country === undefined || city.country.toLowerCase() == _country)) a=city.id;
+            });
+            return a;
+        }
+     */
 
     ///
 }
