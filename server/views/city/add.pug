@@ -7,12 +7,9 @@ block config
 block content
     .box
         h1 Add a city
-        form(action='/add', method='POST')
-            input( type='text', id='cityId', name='cityId', placeholder='City Id' )
-            button(type='submit') Add
-
-        input( type='text', id='cityInput', placeholder='Search a city', onkeyup='updateCities()')
-        ul#citiesContainer
+        div
+            input( type='text', id='cityInput', placeholder='Search a city', onkeyup='updateCities()')
+            ul#citiesContainer
 
         script(src='/js/add-city.js')
 
