@@ -2,20 +2,24 @@ extends ../template/default
 
 block config
     - const title = 'Details'
-    link(rel='stylesheet', href='css/add.css')
+    link(rel='stylesheet', href='/css/details.css')
 
 block content
+    h1= cityName + " Forecast"
     .box
         each detail in details
-            .detial
+            .detail
                 .day= detail.day
                 .icon
                     img(src= '/media/weather/' + detail.icon + '.png', alt=detail.description)
-                .temp_min= detail.min
-                .temp_max= detail.max
-        h1 Add a city
-        form(action='/add', method='POST')
-            input( type='text', id='cityId', name='cityId', placeholder='City Id' )
-            button(type='submit') Add
+                .temperature
+                    .min
+                        img(src='/media/arrows/min.png', alt='minimum temperature')
+                        p.temp=Math.round( detail.min -273.15 )
+                        p MIN
+                    .max
+                        img(src='/media/arrows/max.png', alt='maximum temperature')
+                        p.temp=Math.round( detail.max -273.15 )
+                        p MAX
 
-        a(href='/home') Back to home page
+    a(href='/home') Back to home page

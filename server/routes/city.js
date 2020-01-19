@@ -84,7 +84,7 @@ router.get('/details/:cityId?', ensureAuthenticated, (req, res) => {
 });
  */
 // Get details for a city weather
-router.get('/details/:cityId?', (req, res, next) => {
+router.get('/details/:cityId?', ensureAuthenticated, (req, res, next) => {
     // Verify if the city exists
     let city = City.inCityList(req.params.cityId);
     if (city) {
@@ -95,7 +95,7 @@ router.get('/details/:cityId?', (req, res, next) => {
                 'headers': {}
             })
             .then((data) => { // If the request is successful
-                return res.render('city/details', { details: City.processDetails(data) });
+                return res.render('city/details', { details: City.processDetails(data), cityName: City.getCityNameById(req.params.cityId) });
             })
             .catch((err) => { // Catch the error
                 console.log(err);

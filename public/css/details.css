@@ -1,0 +1,99 @@
+/**********   COLOR THEME   **********/
+
+html {
+    --item-gradiant-1: #FFF;
+    --item-gradiant-2: #FFF;
+    --add-city-img: url(/media/add-light.png);
+    --city-img: url(/media/city-light.png);
+}
+
+html[data-theme='dark'] {
+    --item-gradiant-1: #6b2084;
+    --item-gradiant-2: #070778;
+    --add-city-img: url(/media/add-dark.png);
+    --city-img: url(/media/city-dark.png);
+}
+
+.content {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0 5em;
+    max-width: 1080px;
+}
+
+.box>.detail {
+    width: 25%;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1.2em;
+    background: var(--item-gradiant-1);
+    background: linear-gradient(0deg, var(--item-gradiant-1) 0%, var(--item-gradiant-2) 100%);
+    color: var(--text-color);
+    box-shadow: 7px 7px 12px var(--shadow-color);
+}
+
+.detail>.day {
+    font-size: 2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.detail>.icon {
+    margin: 1em 0;
+    width: 100%;
+    padding: 0 1em;
+}
+
+.detail>.icon>img {
+    width: 100%;
+}
+
+.detail>.temperature {
+    padding: 0 0.5em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.detail>.temperature>.min,
+.detail>.temperature>.max {
+    width: 30%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.min>img,
+.max>img {
+    width: 1.2em;
+}
+
+p.temp {
+    font-size: 2em;
+}
+
+.content>h1 {
+    padding: 0.1em 0 0 0.2em;
+    font-size: 2.6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-color)
+}
+
+.content>a {
+    background-color: #00FF9B;
+    text-decoration: none;
+    padding: 1em 2em;
+    color: white;
+    border-radius: 2em;
+    font-weight: 800;
+}

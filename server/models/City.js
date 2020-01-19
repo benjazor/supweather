@@ -85,6 +85,12 @@ class City {
         return result;
     }
 
+    static getCityNameById = (id) => {
+        for (let city of cities) {
+            if (city.id == id) return city.name
+        }
+    }
+
 
 
 
