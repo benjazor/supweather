@@ -78,6 +78,7 @@ img.slider-control:hover {
 /**********   SLIDER ITEMS   **********/
 .item {
     width: 30%;
+    min-height: 50vh;
     min-width: 30%;
     padding: 1em 1em;
     margin: 1em;
