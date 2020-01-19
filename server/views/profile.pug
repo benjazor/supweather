@@ -1,9 +1,0 @@
-extends defaut-template
-block config
-    - const title = 'Profile'
-    link(rel='stylesheet', href='/css/profile.css')
-
-block content
-    h1 Welcome on your profile #{name} !
-    p This is your profile page
-    a(href='/users/logout') Logout

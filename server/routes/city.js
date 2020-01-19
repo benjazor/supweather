@@ -20,10 +20,11 @@ router.post('/add', ensureAuthenticated, (req, res) => {
         if (!req.user.cities.includes(req.body.cityId.toString())) { // Verify that the user is not trying to add a city a second time
             // Push the city id to the user's city array
             req.user.cities.push(city.id);
-            req.user.save(); // Save in database
-            // Returns user to home page with splash message
-            req.flash('success_msg', `${city.name}, ${city.country} has been added.`);
-            return res.redirect('home');
+            req.user.save().then(() => { // Save in database
+                // Returns user to home page with splash message
+                req.flash('success_msg', `${city.name}, ${city.country} has been added.`);
+                return res.redirect('home');
+            });
         } else {
             // Returns user to home page with splash message
             req.flash('error_msg', `${city.name}, ${city.country} is already on your profile!`);
@@ -58,10 +59,11 @@ router.post('/delete', ensureAuthenticated, (req, res) => {
                     i--;
                 }
             }
-            req.user.save(); // Save in database
-            // Returns user to home page with splash message
-            req.flash('success_msg', `${city.name}, ${city.country} has been deleted.`);
-            return res.redirect('home');
+            req.user.save().then(() => {
+                // Returns user to home page with splash message
+                req.flash('success_msg', `${city.name}, ${city.country} has been deleted.`);
+                return res.redirect('home');
+            }); // Save in database
         } else {
             // Returns user to home page with splash message
             req.flash('error_msg', `${city.name}, ${city.country} is not on your profile, so you can't delete it!`);
@@ -75,14 +77,6 @@ router.post('/delete', ensureAuthenticated, (req, res) => {
 });
 
 /**********   CITY DETAILS   **********/
-/*
-router.get('/details/:cityId?', ensureAuthenticated, (req, res) => {
-    let city = City.inCityList(cityId)
-    if (cityId) {
-
-    }
-});
- */
 // Get details for a city weather
 router.get('/details/:cityId?', ensureAuthenticated, (req, res, next) => {
     // Verify if the city exists

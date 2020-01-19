@@ -7,13 +7,17 @@ const path = require('path');
 const https = require('https'); // HTTPS
 const RateLimit = require('express-rate-limit'); // DoS Protection
 const helmet = require('helmet'); // HTTP headers protection
-const mongoose = require('mongoose'); //
+
+const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
 const app = express();
 
+
+// Secure headers
+app.use(helmet());
 
 
 /**********   CONFIG   **********/
@@ -28,7 +32,7 @@ const httpsOptions = {
 
 // Rate limit setup (DoS protection)
 const limiter = new RateLimit({
-    windowMS: 15*60*1000, // 15 minutes
+    windowMS: 15 * 60 * 1000, // 15 minutes
     max: 100, // Limit number of request per IP
     delayMs: 0 // disable delays
 });
@@ -37,8 +41,8 @@ const limiter = new RateLimit({
 require('./config/passport')(passport);
 
 // MongoDB connection (Database)
-mongoose.connect(process.env.DBURL,  { useNewUrlParser: true,  useUnifiedTopology: true }, (err) => {})
-    .then(() => { console.log('MongoDB Connected...')})
+mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {})
+    .then(() => { console.log('MongoDB Connected...') })
     .catch((err) => console.log(err));
 
 
@@ -70,6 +74,7 @@ app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     next();
 });
 
